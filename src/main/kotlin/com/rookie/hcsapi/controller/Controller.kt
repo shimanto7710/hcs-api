@@ -4,6 +4,8 @@ import com.rookie.hcsapi.auth.AuthRequestBody
 import com.rookie.hcsapi.auth.AuthenticationResponse
 import com.rookie.hcsapi.auth.JwtUtil
 import com.rookie.hcsapi.auth.MyUserDetailsService
+import com.rookie.hcsapi.core.Response
+import com.rookie.hcsapi.data_handler.DataHandlerInterface
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.security.authentication.AuthenticationManager
@@ -13,7 +15,7 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api/")
-class Controller {
+class Controller : DataHandlerInterface {
 
     @Autowired
     private val authenticationManager: AuthenticationManager? = null
@@ -22,8 +24,8 @@ class Controller {
     @Autowired
     private val userDetailsService: MyUserDetailsService? = null
 
-//    @Autowired
-//    private val controllerService: ControllerService? = null
+    @Autowired
+    private val controllerService: ControllerService? = null
 
 
     @RequestMapping(value = ["/authenticate"], method = [RequestMethod.POST])
@@ -50,6 +52,12 @@ class Controller {
     fun hello():String{
         return "Welcome to hcs project"
     }
+
+    @GetMapping(value=["/send-otp/{phoneNumber}"])
+    override fun sendOtp(@PathVariable("phoneNumber") phoneNumber :String) : Response?{
+        return controllerService?.sendOtp(phoneNumber)
+    }
+
 
 
 }

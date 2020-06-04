@@ -40,7 +40,7 @@ internal class WebSecurityConfig : WebSecurityConfigurerAdapter() {
     @Throws(Exception::class)
     override fun configure(httpSecurity: HttpSecurity) {
         httpSecurity.csrf().disable()
-                .authorizeRequests().antMatchers("/api/authenticate").permitAll().anyRequest().authenticated().and().exceptionHandling().and().sessionManagement()
+                .authorizeRequests().antMatchers("/api/authenticate","/api/send-otp/{phoneNumber}").permitAll().anyRequest().authenticated().and().exceptionHandling().and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter::class.java)
     }
