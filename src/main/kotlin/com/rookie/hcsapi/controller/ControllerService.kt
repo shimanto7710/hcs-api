@@ -1,10 +1,7 @@
 package com.rookie.hcsapi.controller
-
-
-
-
 import com.rookie.hcsapi.core.Response
 import com.rookie.hcsapi.data_handler.DataHandlerInterface
+import com.rookie.hcsapi.model.UserModel
 
 import net.minidev.json.JSONArray
 import net.minidev.json.JSONObject
@@ -25,6 +22,22 @@ class ControllerService : DataHandlerInterface {
 
     override fun sendOtp(phoneNumber: String): Response? {
         return Response(true,"5544")
+    }
+
+    override fun getAllUser(): List<UserModel>? {
+        return dataHandler?.getAllUser()
+    }
+
+    override fun getUserById(id: Long): Optional<UserModel>? {
+        return dataHandler?.getUserById(id)
+    }
+
+    override fun createUser(userModel: UserModel): UserModel? {
+        return dataHandler?.createUser(userModel)
+    }
+
+    override fun removeUser(id: Long): Unit? {
+        return dataHandler?.removeUser(id)
     }
 
 

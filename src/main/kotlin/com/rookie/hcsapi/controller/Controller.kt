@@ -6,12 +6,14 @@ import com.rookie.hcsapi.auth.JwtUtil
 import com.rookie.hcsapi.auth.MyUserDetailsService
 import com.rookie.hcsapi.core.Response
 import com.rookie.hcsapi.data_handler.DataHandlerInterface
+import com.rookie.hcsapi.model.UserModel
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.BadCredentialsException
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.web.bind.annotation.*
+import java.util.*
 
 @RestController
 @RequestMapping("/api/")
@@ -58,6 +60,24 @@ class Controller : DataHandlerInterface {
         return controllerService?.sendOtp(phoneNumber)
     }
 
+    @GetMapping(value=["/users"])
+    override fun getAllUser(): List<UserModel>? {
+        return controllerService?.getAllUser()
+    }
+
+    @GetMapping(value=["/users/{id}"])
+    override fun getUserById(@PathVariable("id") id: Long): Optional<UserModel>? {
+        return controllerService?.getUserById(id)
+    }
+    @PostMapping(value=["/create-users"])
+    override fun createUser(@RequestBody userModel: UserModel): UserModel? {
+        return controllerService?.createUser(userModel)
+    }
+
+    @GetMapping(value=["/remove-users/{id}"])
+    override fun removeUser(@PathVariable("id") id: Long): Unit? {
+        return controllerService?.removeUser(id)
+    }
 
 
 }
