@@ -1,5 +1,5 @@
 package com.rookie.hcsapi.core
 
-import com.rookie.hcsapi.model.UserModel
+import com.rookie.hcsapi.model.User
 
-data class LoginSuccessBody(var userModel: UserModel?)
+data class LoginSuccessBody(var user: User?)

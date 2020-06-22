@@ -1,7 +1,6 @@
 package com.rookie.hcsapi.auth
 
 
-import com.rookie.hcsapi.model.UserModel
 import com.rookie.hcsapi.repo.UserRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.core.userdetails.User

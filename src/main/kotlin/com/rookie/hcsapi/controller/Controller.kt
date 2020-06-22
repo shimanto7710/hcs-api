@@ -1,18 +1,14 @@
 package com.rookie.hcsapi.controller
 
 import com.rookie.hcsapi.auth.AuthRequestBody
-import com.rookie.hcsapi.auth.AuthenticationResponse
 import com.rookie.hcsapi.auth.JwtUtil
 import com.rookie.hcsapi.auth.MyUserDetailsService
 import com.rookie.hcsapi.core.LoginSuccessBody
 import com.rookie.hcsapi.core.Response
 import com.rookie.hcsapi.data_handler.DataHandlerInterface
 import com.rookie.hcsapi.model.Banner
-import com.rookie.hcsapi.model.UserModel
-import com.rookie.hcsapi.repo.UserRepository
-import net.minidev.json.JSONArray
+import com.rookie.hcsapi.model.User
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.http.ResponseEntity
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.BadCredentialsException
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
@@ -90,17 +86,17 @@ class Controller : DataHandlerInterface {
     }
 
     @GetMapping(value=["/users"])
-    override fun getAllUser(): List<UserModel>? {
+    override fun getAllUser(): List<User>? {
         return controllerService?.getAllUser()
     }
 
     @GetMapping(value=["/users/{id}"])
-    override fun getUserById(@PathVariable("id") id: Long): Optional<UserModel>? {
+    override fun getUserById(@PathVariable("id") id: Long): Optional<User>? {
         return controllerService?.getUserById(id)
     }
     @PostMapping(value=["/create-users"])
-    override fun createUser(@RequestBody userModel: UserModel): UserModel? {
-        return controllerService?.createUser(userModel)
+    override fun createUser(@RequestBody user: User): User? {
+        return controllerService?.createUser(user)
     }
 
     @GetMapping(value=["/remove-users/{id}"])

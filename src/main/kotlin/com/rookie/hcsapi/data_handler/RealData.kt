@@ -1,11 +1,9 @@
 package com.rookie.hcsapi.data_handler
 import com.rookie.hcsapi.core.Response
 import com.rookie.hcsapi.model.Banner
-import com.rookie.hcsapi.model.UserModel
+import com.rookie.hcsapi.model.User
 import com.rookie.hcsapi.repo.BannerRepository
 import com.rookie.hcsapi.repo.UserRepository
-import net.minidev.json.JSONArray
-import net.minidev.json.JSONObject
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Repository
 import java.util.*
@@ -23,16 +21,16 @@ class RealData : DataHandlerInterface {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getAllUser(): List<UserModel>? {
+    override fun getAllUser(): List<User>? {
         return userRepository?.findAll()
     }
 
-    override fun getUserById(id:Long): Optional<UserModel>? {
+    override fun getUserById(id:Long): Optional<User>? {
         return userRepository?.findById(id)
     }
 
-    override fun createUser(userModel: UserModel): UserModel? {
-        return userRepository?.save(userModel)
+    override fun createUser(user: User): User? {
+        return userRepository?.save(user)
 
     }
 

@@ -5,9 +5,8 @@ import com.rookie.hcsapi.core.LoginSuccessBody
 import com.rookie.hcsapi.core.Response
 import com.rookie.hcsapi.data_handler.DataHandlerInterface
 import com.rookie.hcsapi.model.Banner
-import com.rookie.hcsapi.model.UserModel
+import com.rookie.hcsapi.model.User
 import com.rookie.hcsapi.repo.UserRepository
-import net.minidev.json.JSONArray
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
@@ -33,16 +32,16 @@ class ControllerService : DataHandlerInterface {
         return Response(true, "5544")
     }
 
-    override fun getAllUser(): List<UserModel>? {
+    override fun getAllUser(): List<User>? {
         return dataHandler?.getAllUser()
     }
 
-    override fun getUserById(id: Long): Optional<UserModel>? {
+    override fun getUserById(id: Long): Optional<User>? {
         return dataHandler?.getUserById(id)
     }
 
-    override fun createUser(userModel: UserModel): UserModel? {
-        return dataHandler?.createUser(userModel)
+    override fun createUser(user: User): User? {
+        return dataHandler?.createUser(user)
     }
 
     override fun removeUser(id: Long): Unit? {
@@ -57,7 +56,7 @@ class ControllerService : DataHandlerInterface {
     fun login(authRequestBody: AuthRequestBody): LoginSuccessBody? {
         var userModel = userRepository?.findByPhoneNumber(authRequestBody.username)
         if (userModel==null){
-            userModel=userRepository?.save(UserModel(-10,null,authRequestBody.username,null,null,"xyz10",null))
+            userModel=userRepository?.save(User(-10,null,authRequestBody.username,null,null,"xyz10",null))
         }
         return LoginSuccessBody(userModel)
     }
