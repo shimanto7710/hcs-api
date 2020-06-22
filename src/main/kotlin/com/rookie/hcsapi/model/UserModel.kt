@@ -5,8 +5,7 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "user")
-public class User(
-//asds
+public class UserModel(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "id")

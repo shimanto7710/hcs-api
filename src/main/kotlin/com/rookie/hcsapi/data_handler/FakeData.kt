@@ -1,7 +1,7 @@
 package com.rookie.hcsapi.data_handler
 import com.rookie.hcsapi.core.Response
 import com.rookie.hcsapi.model.Banner
-import com.rookie.hcsapi.model.User
+import com.rookie.hcsapi.model.UserModel
 
 import org.springframework.stereotype.Repository
 import java.util.*
@@ -12,15 +12,15 @@ class FakeData : DataHandlerInterface {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getAllUser(): List<User>? {
+    override fun getAllUser(): List<UserModel>? {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getUserById(id: Long): Optional<User>? {
+    override fun getUserById(id: Long): Optional<UserModel>? {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun createUser(user: User): User? {
+    override fun createUser(userModel: UserModel): UserModel? {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
