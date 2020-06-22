@@ -39,6 +39,7 @@ internal class WebSecurityConfig : WebSecurityConfigurerAdapter() {
 
     @Throws(Exception::class)
     override fun configure(httpSecurity: HttpSecurity) {
+        http.headers().frameOptions().disable()
         httpSecurity.csrf().disable()
                 .authorizeRequests().antMatchers("/api/authenticate","/api/send-otp/{phoneNumber}").permitAll().anyRequest().authenticated().and().exceptionHandling().and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)

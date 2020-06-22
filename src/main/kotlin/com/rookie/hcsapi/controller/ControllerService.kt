@@ -1,13 +1,16 @@
 package com.rookie.hcsapi.controller
+
+import com.rookie.hcsapi.auth.AuthRequestBody
+import com.rookie.hcsapi.core.LoginSuccessBody
 import com.rookie.hcsapi.core.Response
 import com.rookie.hcsapi.data_handler.DataHandlerInterface
 import com.rookie.hcsapi.model.UserModel
+import com.rookie.hcsapi.repo.UserRepository
 
-import net.minidev.json.JSONArray
-import net.minidev.json.JSONObject
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.stereotype.Service
+
 import java.util.*
 
 @Service
@@ -20,8 +23,12 @@ class ControllerService : DataHandlerInterface {
         this.dataHandler = dataHandler
     }
 
+    @Autowired
+    private var userRepository: UserRepository? = null
+
+
     override fun sendOtp(phoneNumber: String): Response? {
-        return Response(true,"5544")
+        return Response(true, "5544")
     }
 
     override fun getAllUser(): List<UserModel>? {
@@ -38,6 +45,14 @@ class ControllerService : DataHandlerInterface {
 
     override fun removeUser(id: Long): Unit? {
         return dataHandler?.removeUser(id)
+    }
+
+    fun login(authRequestBody: AuthRequestBody): LoginSuccessBody? {
+        var userModel = userRepository?.findByPhoneNumber(authRequestBody.username)
+        if (userModel==null){
+            userModel=userRepository?.save(UserModel(-10,null,authRequestBody.username,null,null,"xyz10",null))
+        }
+        return LoginSuccessBody(userModel)
     }
 
 
