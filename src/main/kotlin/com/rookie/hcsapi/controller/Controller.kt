@@ -7,6 +7,7 @@ import com.rookie.hcsapi.auth.MyUserDetailsService
 import com.rookie.hcsapi.core.LoginSuccessBody
 import com.rookie.hcsapi.core.Response
 import com.rookie.hcsapi.data_handler.DataHandlerInterface
+import com.rookie.hcsapi.model.Banner
 import com.rookie.hcsapi.model.UserModel
 import com.rookie.hcsapi.repo.UserRepository
 import net.minidev.json.JSONArray
@@ -105,6 +106,11 @@ class Controller : DataHandlerInterface {
     @GetMapping(value=["/remove-users/{id}"])
     override fun removeUser(@PathVariable("id") id: Long): Unit? {
         return controllerService?.removeUser(id)
+    }
+
+    @GetMapping(value = ["/banners"])
+    override fun getAllBanner(): MutableList<Banner>? {
+        return controllerService?.getAllBanner()
     }
 
     @PostMapping(value=["/login/"])

@@ -1,6 +1,8 @@
 package com.rookie.hcsapi.data_handler
 import com.rookie.hcsapi.core.Response
+import com.rookie.hcsapi.model.Banner
 import com.rookie.hcsapi.model.UserModel
+import com.rookie.hcsapi.repo.BannerRepository
 import com.rookie.hcsapi.repo.UserRepository
 import net.minidev.json.JSONArray
 import net.minidev.json.JSONObject
@@ -14,6 +16,8 @@ class RealData : DataHandlerInterface {
     @Autowired
     var userRepository: UserRepository? = null
 
+    @Autowired
+    var bannerRepository: BannerRepository? = null
 
     override fun sendOtp(phoneNumber: String): Response? {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -36,7 +40,9 @@ class RealData : DataHandlerInterface {
         return userRepository?.deleteById(id)
     }
 
-
+    override fun getAllBanner(): MutableList<Banner>? {
+        return bannerRepository?.findAll()
+    }
 
 
 }

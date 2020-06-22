@@ -4,6 +4,7 @@ import com.rookie.hcsapi.auth.AuthRequestBody
 import com.rookie.hcsapi.core.LoginSuccessBody
 import com.rookie.hcsapi.core.Response
 import com.rookie.hcsapi.data_handler.DataHandlerInterface
+import com.rookie.hcsapi.model.Banner
 import com.rookie.hcsapi.model.UserModel
 import com.rookie.hcsapi.repo.UserRepository
 import net.minidev.json.JSONArray
@@ -48,6 +49,9 @@ class ControllerService : DataHandlerInterface {
         return dataHandler?.removeUser(id)
     }
 
+    override fun getAllBanner(): MutableList<Banner>? {
+        return dataHandler?.getAllBanner()
+    }
 
 
     fun login(authRequestBody: AuthRequestBody): LoginSuccessBody? {

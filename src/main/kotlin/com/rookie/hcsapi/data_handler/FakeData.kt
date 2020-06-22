@@ -1,5 +1,6 @@
 package com.rookie.hcsapi.data_handler
 import com.rookie.hcsapi.core.Response
+import com.rookie.hcsapi.model.Banner
 import com.rookie.hcsapi.model.UserModel
 import net.minidev.json.JSONArray
 
@@ -28,7 +29,9 @@ class FakeData : DataHandlerInterface {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-
+    override fun getAllBanner(): MutableList<Banner>? {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
 
 }
