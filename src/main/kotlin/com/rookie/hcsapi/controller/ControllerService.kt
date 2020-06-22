@@ -48,9 +48,7 @@ class ControllerService : DataHandlerInterface {
         return dataHandler?.removeUser(id)
     }
 
-    override fun getAllBook(): JSONArray? {
-        return dataHandler?.getAllBook()
-    }
+
 
     fun login(authRequestBody: AuthRequestBody): LoginSuccessBody? {
         var userModel = userRepository?.findByPhoneNumber(authRequestBody.username)

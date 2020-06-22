@@ -107,11 +107,6 @@ class Controller : DataHandlerInterface {
         return controllerService?.removeUser(id)
     }
 
-    @GetMapping(value = ["/books"])
-    override fun getAllBook(): JSONArray? {
-        return controllerService?.getAllBook()
-    }
-
     @PostMapping(value=["/login/"])
     fun login(@RequestBody authenticationRequest: AuthRequestBody) :LoginSuccessBody? {
         return controllerService?.login(authenticationRequest)
