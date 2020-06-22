@@ -1,11 +1,10 @@
 package com.rookie.hcsapi.model
 
-import java.io.Serializable
 import javax.persistence.*
 
 @Entity
 @Table(name = "user")
-public class UserModel(
+class UserModel(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "id")
@@ -25,8 +24,8 @@ public class UserModel(
 
 )
 {
-    override fun toString(): String {
-        return "UserModel(id=$id, userName='$userName', phoneNumber='$phoneNumber', email='$email', shareCode='$shareCode', operator='$operator', imgUrl='$imgUrl')"
-    }
-}
 
+        override fun toString(): String {
+                return "Test(id=$id, userName=$userName, phoneNumber=$phoneNumber, email=$email, shareCode=$shareCode, operator=$operator, imgUrl=$imgUrl)"
+        }
+}
