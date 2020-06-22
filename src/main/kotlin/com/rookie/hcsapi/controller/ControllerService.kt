@@ -6,6 +6,7 @@ import com.rookie.hcsapi.core.Response
 import com.rookie.hcsapi.data_handler.DataHandlerInterface
 import com.rookie.hcsapi.model.UserModel
 import com.rookie.hcsapi.repo.UserRepository
+import net.minidev.json.JSONArray
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
@@ -45,6 +46,10 @@ class ControllerService : DataHandlerInterface {
 
     override fun removeUser(id: Long): Unit? {
         return dataHandler?.removeUser(id)
+    }
+
+    override fun getAllBook(): JSONArray? {
+        return dataHandler?.getAllBook()
     }
 
     fun login(authRequestBody: AuthRequestBody): LoginSuccessBody? {

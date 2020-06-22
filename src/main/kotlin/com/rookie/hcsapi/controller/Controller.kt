@@ -9,6 +9,7 @@ import com.rookie.hcsapi.core.Response
 import com.rookie.hcsapi.data_handler.DataHandlerInterface
 import com.rookie.hcsapi.model.UserModel
 import com.rookie.hcsapi.repo.UserRepository
+import net.minidev.json.JSONArray
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.security.authentication.AuthenticationManager
@@ -104,6 +105,11 @@ class Controller : DataHandlerInterface {
     @GetMapping(value=["/remove-users/{id}"])
     override fun removeUser(@PathVariable("id") id: Long): Unit? {
         return controllerService?.removeUser(id)
+    }
+
+    @GetMapping(value = ["/books"])
+    override fun getAllBook(): JSONArray? {
+        return controllerService?.getAllBook()
     }
 
     @PostMapping(value=["/login/"])
