@@ -48,12 +48,11 @@ class ControllerService : DataHandlerInterface {
     }
 
     fun login(authRequestBody: AuthRequestBody): LoginSuccessBody? {
-//        var userModel = userRepository?.findByPhoneNumber(authRequestBody.username)
-//        if (userModel==null){
-//            userModel=userRepository?.save(UserModel(-10,null,authRequestBody.username,null,null,"xyz10",null))
-//        }
-//        return LoginSuccessBody(userModel)
-        return null
+        var userModel = userRepository?.findByPhoneNumber(authRequestBody.username)
+        if (userModel==null){
+            userModel=userRepository?.save(UserModel(-10,null,authRequestBody.username,null,null,"xyz10",null))
+        }
+        return LoginSuccessBody(userModel)
     }
 
 
