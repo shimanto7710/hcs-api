@@ -3,7 +3,7 @@ package com.rookie.hcsapi.model
 import javax.persistence.*
 
 @Entity
-@Table(name = "user")
+@Table(name = "user_model")
 class UserModel(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)

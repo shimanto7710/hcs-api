@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface UserRepository: JpaRepository<UserModel, Long> {
-    @Query(value = "SELECT * FROM user where phone_number = ?1", nativeQuery = true)
+    @Query(value = "SELECT * FROM user_model where phone_number = ?1", nativeQuery = true)
     fun findByPhoneNumber(phoneNumber: String?): UserModel?
 }
