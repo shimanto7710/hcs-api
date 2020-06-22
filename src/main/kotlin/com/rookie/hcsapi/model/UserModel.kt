@@ -7,7 +7,6 @@ import javax.persistence.*
 @Table(name = "user")
 public class UserModel(
 
-
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "id")
