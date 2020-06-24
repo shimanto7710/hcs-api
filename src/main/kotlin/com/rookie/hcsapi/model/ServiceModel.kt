@@ -22,10 +22,10 @@ class ServiceModel(
         @Column(name = "type")
         var type: String? = null,
         @Column(name = "image")
-        var image: String? = null
+        var image: String? = null,
 
-//        @OneToMany(mappedBy = "service_table", cascade = arrayOf(CascadeType.ALL), fetch = FetchType.EAGER)
-//        var books: List<PromoModel> = emptyList()
+        @OneToMany(mappedBy = "service_table", cascade = arrayOf(CascadeType.ALL), fetch = FetchType.EAGER)
+        var promoList: List<PromoModel> = emptyList()
 
 ) : Serializable {
 
