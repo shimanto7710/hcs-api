@@ -117,7 +117,7 @@ class Controller : DataHandlerInterface {
 
     @PostMapping(value = ["/create-services"])
     override fun createService(@RequestBody serviceModel: ServiceModel): ServiceModel? {
-        print(serviceModel)
+//        print(serviceModel)
         return controllerService?.createService(serviceModel)
     }
 

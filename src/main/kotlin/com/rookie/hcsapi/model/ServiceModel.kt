@@ -12,17 +12,20 @@ class ServiceModel(
         @Column(name = "id")
         var id: Long? = null,
         @Column(name = "name")
-        var serviceName: String?=null,
+        var serviceName: String? = null,
         @Column(name = "cost")
-        var serviceCost: Double?=null,
+        var serviceCost: Double? = null,
         @Column(name = "distance")
-        var distanceCost: Double?=null,
+        var distanceCost: Double? = null,
         @Column(name = "description")
-        var serviceDes: String?=null,
+        var serviceDes: String? = null,
         @Column(name = "type")
-        var type: String?=null,
+        var type: String? = null,
         @Column(name = "image")
-        var image: String?=null
+        var image: String? = null
+
+//        @OneToMany(mappedBy = "service_table", cascade = arrayOf(CascadeType.ALL), fetch = FetchType.EAGER)
+//        var books: List<PromoModel> = emptyList()
 
 ) : Serializable {
 
