@@ -5,7 +5,7 @@ import javax.persistence.*
 
 
 @Entity
-@Table(name = "service")
+@Table(name = "service_table")
 class ServiceModel(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
