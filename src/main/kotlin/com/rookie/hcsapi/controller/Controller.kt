@@ -121,6 +121,11 @@ class Controller : DataHandlerInterface {
         return controllerService?.createService(serviceModel)
     }
 
+    @GetMapping(value = ["/remove-service/{id}"])
+    override fun removeService(@PathVariable("id") id: Long): Unit? {
+        return controllerService?.removeService(id)
+    }
+
     @PostMapping(value=["/login/"])
     fun login(@RequestBody authenticationRequest: AuthRequestBody) :LoginSuccessBody? {
         return controllerService?.login(authenticationRequest)

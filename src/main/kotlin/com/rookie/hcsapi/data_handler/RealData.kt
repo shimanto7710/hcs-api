@@ -54,5 +54,9 @@ class RealData : DataHandlerInterface {
         return serviceRepo?.save(serviceModel)
     }
 
+    override fun removeService(id: Long): Unit? {
+        return serviceRepo?.deleteById(id)
+    }
+
 
 }

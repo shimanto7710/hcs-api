@@ -27,5 +27,7 @@ interface DataHandlerInterface {
 
      fun createService(serviceModel: ServiceModel) : ServiceModel?
 
+     fun removeService(id:Long):Unit?
+
 
 }

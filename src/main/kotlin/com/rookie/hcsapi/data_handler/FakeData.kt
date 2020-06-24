@@ -41,5 +41,9 @@ class FakeData : DataHandlerInterface {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
+    override fun removeService(id: Long): Unit? {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
 
 }

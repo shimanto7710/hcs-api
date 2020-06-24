@@ -61,6 +61,10 @@ class ControllerService : DataHandlerInterface {
         return dataHandler?.createService(serviceModel)
     }
 
+    override fun removeService(id: Long): Unit? {
+        return dataHandler?.removeService(id)
+    }
+
     fun login(authRequestBody: AuthRequestBody): LoginSuccessBody? {
         var userModel = userRepository?.findByPhoneNumber(authRequestBody.username)
         if (userModel==null){
