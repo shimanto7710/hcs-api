@@ -24,10 +24,10 @@ class PromoModel(
         @Column(name = "discount")
         var discount: Double? = null,
         @Column(name = "image")
-        var imgUrl: String? = null,
-        @ManyToOne(fetch = FetchType.EAGER)
-        @JoinColumn(name = "service_id")
-        var service: ServiceModel? = null
+        var imgUrl: String? = null
+//        @ManyToOne(fetch = FetchType.EAGER)
+//        @JoinColumn(name = "service_id")
+//        var service: ServiceModel? = null
 
 
 ) : Serializable {
