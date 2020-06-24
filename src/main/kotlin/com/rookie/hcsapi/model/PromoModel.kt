@@ -5,7 +5,7 @@ import javax.persistence.*
 
 
 @Entity
-@Table
+@Table(name = "promo_table")
 class PromoModel(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
