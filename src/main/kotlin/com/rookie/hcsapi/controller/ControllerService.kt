@@ -5,6 +5,7 @@ import com.rookie.hcsapi.core.LoginSuccessBody
 import com.rookie.hcsapi.core.Response
 import com.rookie.hcsapi.data_handler.DataHandlerInterface
 import com.rookie.hcsapi.model.Banner
+import com.rookie.hcsapi.model.ServiceModel
 import com.rookie.hcsapi.model.UserModel
 import com.rookie.hcsapi.repo.UserRepository
 
@@ -48,10 +49,17 @@ class ControllerService : DataHandlerInterface {
         return dataHandler?.removeUser(id)
     }
 
-    override fun getAllBanner(): MutableList<Banner>? {
-        return dataHandler?.getAllBanner()
+    override fun findAllService(): List<ServiceModel>? {
+        return dataHandler?.findAllService()
     }
 
+    override fun findServiceById(id: Long): Optional<ServiceModel>? {
+        return dataHandler?.findServiceById(id)
+    }
+
+    override fun createService(serviceModel: ServiceModel): ServiceModel? {
+        return dataHandler?.createService(serviceModel)
+    }
 
     fun login(authRequestBody: AuthRequestBody): LoginSuccessBody? {
         var userModel = userRepository?.findByPhoneNumber(authRequestBody.username)

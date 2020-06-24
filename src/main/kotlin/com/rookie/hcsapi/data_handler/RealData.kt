@@ -1,8 +1,10 @@
 package com.rookie.hcsapi.data_handler
 import com.rookie.hcsapi.core.Response
 import com.rookie.hcsapi.model.Banner
+import com.rookie.hcsapi.model.ServiceModel
 import com.rookie.hcsapi.model.UserModel
 import com.rookie.hcsapi.repo.BannerRepository
+import com.rookie.hcsapi.repo.ServiceRepo
 import com.rookie.hcsapi.repo.UserRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Repository
@@ -14,8 +16,9 @@ class RealData : DataHandlerInterface {
     @Autowired
     var userRepository: UserRepository? = null
 
+
     @Autowired
-    var bannerRepository: BannerRepository? = null
+    var serviceRepo: ServiceRepo? = null
 
     override fun sendOtp(phoneNumber: String): Response? {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -38,8 +41,17 @@ class RealData : DataHandlerInterface {
         return userRepository?.deleteById(id)
     }
 
-    override fun getAllBanner(): MutableList<Banner>? {
-        return bannerRepository?.findAll()
+
+    override fun findAllService(): List<ServiceModel>? {
+        return serviceRepo?.findAll()
+    }
+
+    override fun findServiceById(id: Long): Optional<ServiceModel>? {
+        return serviceRepo?.findById(id)
+    }
+
+    override fun createService(serviceModel: ServiceModel): ServiceModel? {
+        return serviceRepo?.save(serviceModel)
     }
 
 

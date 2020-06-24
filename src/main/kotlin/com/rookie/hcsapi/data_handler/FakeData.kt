@@ -1,6 +1,7 @@
 package com.rookie.hcsapi.data_handler
 import com.rookie.hcsapi.core.Response
 import com.rookie.hcsapi.model.Banner
+import com.rookie.hcsapi.model.ServiceModel
 import com.rookie.hcsapi.model.UserModel
 
 import org.springframework.stereotype.Repository
@@ -28,7 +29,15 @@ class FakeData : DataHandlerInterface {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getAllBanner(): MutableList<Banner>? {
+    override fun findAllService(): List<ServiceModel>? {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun findServiceById(id: Long): Optional<ServiceModel>? {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun createService(serviceModel: ServiceModel): ServiceModel? {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

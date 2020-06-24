@@ -7,6 +7,7 @@ import com.rookie.hcsapi.core.LoginSuccessBody
 import com.rookie.hcsapi.core.Response
 import com.rookie.hcsapi.data_handler.DataHandlerInterface
 import com.rookie.hcsapi.model.Banner
+import com.rookie.hcsapi.model.ServiceModel
 import com.rookie.hcsapi.model.UserModel
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.authentication.AuthenticationManager
@@ -104,9 +105,20 @@ class Controller : DataHandlerInterface {
         return controllerService?.removeUser(id)
     }
 
-    @GetMapping(value = ["/banners"])
-    override fun getAllBanner(): MutableList<Banner>? {
-        return controllerService?.getAllBanner()
+    @GetMapping(value = ["/services"])
+    override fun findAllService(): List<ServiceModel>? {
+        return controllerService?.findAllService()
+    }
+
+    @GetMapping(value = ["/services/{id}"])
+    override fun findServiceById(@PathVariable("id") id: Long): Optional<ServiceModel>? {
+        return controllerService?.findServiceById(id)
+    }
+
+    @PostMapping(value = ["/create-services"])
+    override fun createService(@RequestBody serviceModel: ServiceModel): ServiceModel? {
+        print(serviceModel)
+        return controllerService?.createService(serviceModel)
     }
 
     @PostMapping(value=["/login/"])
@@ -115,6 +127,5 @@ class Controller : DataHandlerInterface {
     }
 
 
-//asdasd
 
 }
