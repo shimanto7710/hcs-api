@@ -3,6 +3,7 @@ package com.rookie.hcsapi.data_handler
 
 import com.rookie.hcsapi.core.Response
 import com.rookie.hcsapi.model.Banner
+import com.rookie.hcsapi.model.PromoModel
 import com.rookie.hcsapi.model.ServiceModel
 import com.rookie.hcsapi.model.UserModel
 import java.util.*
@@ -29,5 +30,12 @@ interface DataHandlerInterface {
 
      fun removeService(id:Long):Unit?
 
+//     fun findAllPromo() :List<PromoModel>?
+//
+//     fun findPromoById(id:Long): Optional<PromoModel>?
+//
+//     fun createPromo(promoModel: PromoModel) : PromoModel?
+//
+//     fun removePromoById(id: Long) :Unit?
 
 }
