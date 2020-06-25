@@ -4,10 +4,7 @@ import com.rookie.hcsapi.auth.AuthRequestBody
 import com.rookie.hcsapi.core.LoginSuccessBody
 import com.rookie.hcsapi.core.Response
 import com.rookie.hcsapi.data_handler.DataHandlerInterface
-import com.rookie.hcsapi.model.Banner
-import com.rookie.hcsapi.model.PromoModel
-import com.rookie.hcsapi.model.ServiceModel
-import com.rookie.hcsapi.model.UserModel
+import com.rookie.hcsapi.model.*
 import com.rookie.hcsapi.repo.UserRepository
 
 import org.springframework.beans.factory.annotation.Autowired
@@ -80,6 +77,22 @@ class ControllerService : DataHandlerInterface {
 
     override fun removePromoById(id: Long): Unit? {
         return dataHandler?.removePromoById(id)
+    }
+
+    override fun findAllTask(): List<TaskModel>? {
+        return dataHandler?.findAllTask()
+    }
+
+    override fun findTaskById(id: Long): Optional<TaskModel>? {
+        return dataHandler?.findTaskById(id)
+    }
+
+    override fun createTask(taskModel: TaskModel): TaskModel? {
+        return dataHandler?.createTask(taskModel)
+    }
+
+    override fun removeTaskById(id: Long): Unit? {
+        return dataHandler?.removeTaskById(id)
     }
 
     fun login(authRequestBody: AuthRequestBody): LoginSuccessBody? {

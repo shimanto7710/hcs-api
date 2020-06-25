@@ -2,10 +2,7 @@ package com.rookie.hcsapi.data_handler
 
 
 import com.rookie.hcsapi.core.Response
-import com.rookie.hcsapi.model.Banner
-import com.rookie.hcsapi.model.PromoModel
-import com.rookie.hcsapi.model.ServiceModel
-import com.rookie.hcsapi.model.UserModel
+import com.rookie.hcsapi.model.*
 import java.util.*
 
 
@@ -37,5 +34,13 @@ interface DataHandlerInterface {
      fun createPromo(promoModel: PromoModel) : PromoModel?
 
      fun removePromoById(id: Long) :Unit?
+
+     fun findAllTask():List<TaskModel>?
+
+     fun findTaskById(id: Long):Optional<TaskModel>?
+
+     fun createTask(taskModel: TaskModel) : TaskModel?
+
+     fun removeTaskById(id: Long):Unit?
 
 }

@@ -6,10 +6,7 @@ import com.rookie.hcsapi.auth.MyUserDetailsService
 import com.rookie.hcsapi.core.LoginSuccessBody
 import com.rookie.hcsapi.core.Response
 import com.rookie.hcsapi.data_handler.DataHandlerInterface
-import com.rookie.hcsapi.model.Banner
-import com.rookie.hcsapi.model.PromoModel
-import com.rookie.hcsapi.model.ServiceModel
-import com.rookie.hcsapi.model.UserModel
+import com.rookie.hcsapi.model.*
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.BadCredentialsException
@@ -153,6 +150,25 @@ class Controller : DataHandlerInterface {
         return controllerService?.login(authenticationRequest)
     }
 
+    @GetMapping(value = ["/tasks"])
+    override fun findAllTask(): List<TaskModel>? {
+        return controllerService?.findAllTask()
+    }
+
+    @GetMapping(value = ["/tasks/{id}"])
+    override fun findTaskById(@PathVariable("id") id: Long): Optional<TaskModel>? {
+        return controllerService?.findTaskById(id)
+    }
+
+    @PostMapping(value = ["/create-tasks"])
+    override fun createTask(@RequestBody taskModel: TaskModel): TaskModel? {
+        return controllerService?.createTask(taskModel)
+    }
+
+    @GetMapping(value = ["/remove-task/{id}"])
+    override fun removeTaskById(@PathVariable("id") id: Long): Unit? {
+        return controllerService?.removeTaskById(id)
+    }
 
 
 }

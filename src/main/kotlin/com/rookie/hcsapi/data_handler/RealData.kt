@@ -1,13 +1,7 @@
 package com.rookie.hcsapi.data_handler
 import com.rookie.hcsapi.core.Response
-import com.rookie.hcsapi.model.Banner
-import com.rookie.hcsapi.model.PromoModel
-import com.rookie.hcsapi.model.ServiceModel
-import com.rookie.hcsapi.model.UserModel
-import com.rookie.hcsapi.repo.BannerRepository
-import com.rookie.hcsapi.repo.PromoRepo
-import com.rookie.hcsapi.repo.ServiceRepo
-import com.rookie.hcsapi.repo.UserRepository
+import com.rookie.hcsapi.model.*
+import com.rookie.hcsapi.repo.*
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Repository
 import java.util.*
@@ -24,6 +18,10 @@ class RealData : DataHandlerInterface {
 
     @Autowired
     var promoRepo: PromoRepo? = null
+
+    @Autowired
+    var taskRepo: TaskRepo? = null
+
 
     override fun sendOtp(phoneNumber: String): Response? {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -72,12 +70,28 @@ class RealData : DataHandlerInterface {
     }
 
     override fun createPromo(promoModel: PromoModel): PromoModel? {
-        var serviceModel:ServiceModel=ServiceModel(1,null,null,null,null,null,null)
+//        var serviceModel:ServiceModel=ServiceModel(1,null,null,null,null,null,null)
         return promoRepo?.save(promoModel)
     }
 
     override fun removePromoById(id: Long): Unit? {
         return promoRepo?.deleteById(id)
+    }
+
+    override fun findAllTask(): List<TaskModel>? {
+        return taskRepo?.findAll()
+    }
+
+    override fun findTaskById(id: Long): Optional<TaskModel>? {
+        return taskRepo?.findById(id)
+    }
+
+    override fun createTask(taskModel: TaskModel): TaskModel? {
+        return taskRepo?.save(taskModel)
+    }
+
+    override fun removeTaskById(id: Long): Unit? {
+        return taskRepo?.deleteById(id)
     }
 
 
