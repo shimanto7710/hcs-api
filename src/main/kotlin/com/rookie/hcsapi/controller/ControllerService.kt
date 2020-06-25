@@ -5,6 +5,7 @@ import com.rookie.hcsapi.core.LoginSuccessBody
 import com.rookie.hcsapi.core.Response
 import com.rookie.hcsapi.data_handler.DataHandlerInterface
 import com.rookie.hcsapi.model.Banner
+import com.rookie.hcsapi.model.PromoModel
 import com.rookie.hcsapi.model.ServiceModel
 import com.rookie.hcsapi.model.UserModel
 import com.rookie.hcsapi.repo.UserRepository
@@ -63,6 +64,22 @@ class ControllerService : DataHandlerInterface {
 
     override fun removeService(id: Long): Unit? {
         return dataHandler?.removeService(id)
+    }
+
+    override fun findAllPromo(): List<PromoModel>? {
+        return dataHandler?.findAllPromo()
+    }
+
+    override fun findPromoById(id: Long): Optional<PromoModel>? {
+        return dataHandler?.findPromoById(id)
+    }
+
+    override fun createPromo(promoModel: PromoModel): PromoModel? {
+        return dataHandler?.createPromo(promoModel)
+    }
+
+    override fun removePromoById(id: Long): Unit? {
+        return dataHandler?.removePromoById(id)
     }
 
     fun login(authRequestBody: AuthRequestBody): LoginSuccessBody? {

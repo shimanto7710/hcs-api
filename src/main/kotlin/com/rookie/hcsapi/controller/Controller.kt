@@ -7,6 +7,7 @@ import com.rookie.hcsapi.core.LoginSuccessBody
 import com.rookie.hcsapi.core.Response
 import com.rookie.hcsapi.data_handler.DataHandlerInterface
 import com.rookie.hcsapi.model.Banner
+import com.rookie.hcsapi.model.PromoModel
 import com.rookie.hcsapi.model.ServiceModel
 import com.rookie.hcsapi.model.UserModel
 import org.springframework.beans.factory.annotation.Autowired
@@ -121,9 +122,30 @@ class Controller : DataHandlerInterface {
         return controllerService?.createService(serviceModel)
     }
 
-    @GetMapping(value = ["/remove-service/{id}"])
+    @GetMapping(value = ["/remove-services/{id}"])
     override fun removeService(@PathVariable("id") id: Long): Unit? {
         return controllerService?.removeService(id)
+    }
+
+    @GetMapping(value = ["/promos"])
+    override fun findAllPromo(): List<PromoModel>? {
+        return controllerService?.findAllPromo()
+    }
+
+    @GetMapping(value = ["/promos/{id}"])
+    override fun findPromoById(@PathVariable("id") id: Long): Optional<PromoModel>? {
+        return controllerService?.findPromoById(id)
+    }
+
+    @PostMapping(value = ["/create-promos"])
+    override fun createPromo(@RequestBody promoModel: PromoModel): PromoModel? {
+        print(promoModel)
+        return controllerService?.createPromo(promoModel)
+    }
+
+    @GetMapping(value = ["/remove-promos/{id}"])
+    override fun removePromoById(@PathVariable("id") id: Long): Unit? {
+        return controllerService?.removePromoById(id)
     }
 
     @PostMapping(value=["/login/"])

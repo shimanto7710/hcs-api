@@ -1,6 +1,7 @@
 package com.rookie.hcsapi.data_handler
 import com.rookie.hcsapi.core.Response
 import com.rookie.hcsapi.model.Banner
+import com.rookie.hcsapi.model.PromoModel
 import com.rookie.hcsapi.model.ServiceModel
 import com.rookie.hcsapi.model.UserModel
 
@@ -42,6 +43,22 @@ class FakeData : DataHandlerInterface {
     }
 
     override fun removeService(id: Long): Unit? {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun findAllPromo(): List<PromoModel>? {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun findPromoById(id: Long): Optional<PromoModel>? {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun createPromo(promoModel: PromoModel): PromoModel? {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun removePromoById(id: Long): Unit? {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

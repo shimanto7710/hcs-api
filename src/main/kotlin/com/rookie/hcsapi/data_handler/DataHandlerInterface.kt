@@ -30,12 +30,12 @@ interface DataHandlerInterface {
 
      fun removeService(id:Long):Unit?
 
-//     fun findAllPromo() :List<PromoModel>?
-//
-//     fun findPromoById(id:Long): Optional<PromoModel>?
-//
-//     fun createPromo(promoModel: PromoModel) : PromoModel?
-//
-//     fun removePromoById(id: Long) :Unit?
+     fun findAllPromo() :List<PromoModel>?
+
+     fun findPromoById(id:Long): Optional<PromoModel>?
+
+     fun createPromo(promoModel: PromoModel) : PromoModel?
+
+     fun removePromoById(id: Long) :Unit?
 
 }
